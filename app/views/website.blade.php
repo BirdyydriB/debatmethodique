@@ -17,6 +17,5 @@
     <div id="mainContainer" class="container">
         @yield('content')
     </div>
-    
 </body>
 </html>
