@@ -16,7 +16,7 @@ Route::get('/', function()
     return View::make('website', array(
 	'logged'    => !Auth::guest(),
 	'user'	    => Auth::user(),
-	'pages'	    => Page::all()
+	'pages'	    => Page::all()->sortBy('rank')
     ));
 });
 

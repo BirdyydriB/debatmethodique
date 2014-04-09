@@ -31,12 +31,14 @@ class DatabaseSeeder extends Seeder {
         Page::create(array(
             'title'   => 'Qui sommes nous',
             'slug'    => 'qui-sommes-nous',
+	    'rank'	=> 2,
             'body'    => 'Lorem ipsum dolor sit amet'
         ));
 	Page::create(array(
-            'title'   => 'Acceuil',
-            'slug'    => 'acceuil',
-            'body'    => 'Lorem ipsum dolor sit amet'
+            'title'	=> 'Acceuil',
+            'slug'	=> 'acceuil',
+	    'rank'	=> 1,
+            'body'	=> 'Lorem ipsum dolor sit amet'
         ));
     }
  
