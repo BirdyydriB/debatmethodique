@@ -8,7 +8,7 @@
    
     {{ HTML::script('/js/jquery-1.11.0.min.js') }}
     {{ HTML::script('/js/bootstrap.min.js') }}
-    {{-- HTML::script('/js/??.js') --}}
+    {{ HTML::script('/js/js.js') }}
 </head>
 <body>
     
@@ -17,5 +17,6 @@
     <div id="mainContainer" class="container">
         @yield('content')
     </div>
+    
 </body>
 </html>

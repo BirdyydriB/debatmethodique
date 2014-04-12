@@ -12,18 +12,28 @@
 */
 
 Route::get('/', function()
-{
-    return View::make('website', array(
-	'logged'    => !Auth::guest(),
-	'user'	    => Auth::user(),
-	'pages'	    => Page::all()->sortBy('rank')
-    ));
+{    
+    return Redirect::to('/acceuil');
 });
 
 Route::get('/{page_slug}', function($page_slug)
 {
-    $page = Page::where('slug', $page_slug)->first();
-    return $page->body;
+    $currentPage = Page::where('slug', $page_slug)->first();
+    
+    return View::make('page', array(
+        'currentPage'   => $currentPage,
+        'logged'        => !Auth::guest(),
+	'user'          => Auth::user(),
+	'pages'         => Page::all()
+                            ->sortBy('rank')
+                            ->lists('title', 'slug')
+    ));
+});
+
+Route::get('/getPageContent/{page_slug}', function($page_slug)
+{
+    $currentPage = Page::where('slug', $page_slug)->first();
+    return View::make('pageContent', array('currentPage' => $currentPage));
 });
 
 Route::get('/login', function()
